@@ -69,6 +69,7 @@ Notification.requestPermission((result) => {
 });
 
 const sendButton = document.getElementById("send-button");
+const sendButton2 = document.getElementById("send-button2");
 
 sendButton.addEventListener("click", () => {
   console.log("click");
@@ -77,4 +78,14 @@ sendButton.addEventListener("click", () => {
       vibrate: [200, 100, 200, 100, 200, 100, 200],
     });
   }
+});
+
+sendButton2.addEventListener("click", () => {
+  setTimeout(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistration().then((sw) => sw.showNotification("Hello"), {
+        vibrate: [200, 100, 200, 100, 200, 100, 200],
+      });
+    }
+  }, 10000);
 });
