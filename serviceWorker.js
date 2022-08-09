@@ -23,6 +23,7 @@ self.addEventListener("install", (installEvent) => {
       cache.addAll(assets);
     })
   );
+  window.location.reload();
   console.log("Install");
 });
 
