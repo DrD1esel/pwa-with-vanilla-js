@@ -23,6 +23,7 @@ self.addEventListener("install", (installEvent) => {
       cache.addAll(assets);
     })
   );
+  console.log("Install");
 });
 
 self.addEventListener("fetch", (fetchEvent) => {
