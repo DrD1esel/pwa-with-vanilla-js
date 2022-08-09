@@ -1,44 +1,44 @@
-const container = document.querySelector(".container");
+const container = document.querySelector('.container');
 const coffees = [
   {
-    name: "Perspiciatis",
-    image: "images/coffee1.jpg",
+    name: 'Perspiciatis',
+    image: 'images/coffee1.jpg',
   },
   {
-    name: "Voluptatem",
-    image: "images/coffee2.jpg",
+    name: 'Voluptatem',
+    image: 'images/coffee2.jpg',
   },
   {
-    name: "Explicabo",
-    image: "images/coffee3.jpg",
+    name: 'Explicabo',
+    image: 'images/coffee3.jpg',
   },
   {
-    name: "Rchitecto",
-    image: "images/coffee4.jpg",
+    name: 'Rchitecto',
+    image: 'images/coffee4.jpg',
   },
   {
-    name: " Beatae",
-    image: "images/coffee5.jpg",
+    name: ' Beatae',
+    image: 'images/coffee5.jpg',
   },
   {
-    name: " Vitae",
-    image: "images/coffee6.jpg",
+    name: ' Vitae',
+    image: 'images/coffee6.jpg',
   },
   {
-    name: "Inventore",
-    image: "images/coffee7.jpg",
+    name: 'Inventore',
+    image: 'images/coffee7.jpg',
   },
   {
-    name: "Veritatis",
-    image: "images/coffee8.jpg",
+    name: 'Veritatis',
+    image: 'images/coffee8.jpg',
   },
   {
-    name: "Accusantium",
-    image: "images/coffee9.jpg",
+    name: 'Accusantium',
+    image: 'images/coffee9.jpg',
   },
 ];
 const showCoffees = () => {
-  let output = "";
+  let output = '';
   coffees.forEach(
     ({ name, image }) =>
       (output += `
@@ -52,38 +52,41 @@ const showCoffees = () => {
   container.innerHTML = output;
 };
 
-document.addEventListener("DOMContentLoaded", showCoffees);
+document.addEventListener('DOMContentLoaded', showCoffees);
 
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
     navigator.serviceWorker
-      .register("/serviceWorker.js")
-      .then((res) => console.log("service worker registered"))
-      .catch((err) => console.log("service worker not registered", err));
+      .register('/serviceWorker.js')
+      .then(res => {
+        console.log(res);
+        console.log('service worker registered');
+      })
+      .catch(err => console.log('service worker not registered', err));
   });
 }
 
-Notification.requestPermission((result) => {
-  if (result === "granted") {
+Notification.requestPermission(result => {
+  if (result === 'granted') {
   }
 });
 
-const sendButton = document.getElementById("send-button");
-const sendButton2 = document.getElementById("send-button2");
+const sendButton = document.getElementById('send-button');
+const sendButton2 = document.getElementById('send-button2');
 
-sendButton.addEventListener("click", () => {
-  console.log("click");
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.getRegistration().then((sw) => sw.showNotification("Hello"), {
+sendButton.addEventListener('click', () => {
+  console.log('click');
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistration().then(sw => sw.showNotification('Hello'), {
       vibrate: [200, 100, 200, 100, 200, 100, 200],
     });
   }
 });
 
-sendButton2.addEventListener("click", () => {
+sendButton2.addEventListener('click', () => {
   setTimeout(() => {
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.getRegistration().then((sw) => sw.showNotification("Hello"), {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistration().then(sw => sw.showNotification('Hello'), {
         vibrate: [200, 100, 200, 100, 200, 100, 200],
       });
     }
