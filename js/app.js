@@ -83,17 +83,18 @@ Notification.requestPermission((result) => {
 const sendButton = document.getElementById("send-button");
 const sendButton2 = document.getElementById("send-button2");
 
-sendButton.addEventListener("click", () => {
+sendButton.addEventListener("click", async () => {
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.getRegistration().then((sw) =>
-      sw.showNotification("Hello", {
-        vibrate: [200, 100, 200, 100, 200, 100, 200],
-        actions: [
-          { action: "like", title: "Like" },
-          { action: "reply", title: "Reply" },
-        ],
-      })
-    );
+    const sw = await navigator.serviceWorker.getRegistration();
+    console.log(window.location);
+
+    sw.showNotification("Hello", {
+      vibrate: [200, 100, 200, 100, 200, 100, 200],
+      actions: [
+        { action: "like", title: "Like" },
+        { action: "show", title: "Reply" },
+      ],
+    });
   }
 });
 
