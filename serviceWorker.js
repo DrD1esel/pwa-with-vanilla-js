@@ -1,4 +1,4 @@
-const staticDevCoffee = "dev-coffee-site-v1";
+const staticDevCoffee = "dev-coffee-site-v2";
 // DO NOT CHANGE CACHE NAME
 const cacheName = "v7";
 const assets = [
@@ -34,3 +34,21 @@ self.addEventListener("fetch", (fetchEvent) => {
     })
   );
 });
+
+self.addEventListener(
+  "notificationclick",
+  function (event) {
+    var messageId = event.notification.data;
+    console.log(event);
+    console.log(event.notification);
+    event.notification.close();
+
+    if (event.action === "like") {
+      console.log("like");
+    }
+    if (event.action === "show") {
+      clients.openWindow("/" + messageId);
+    }
+  },
+  false
+);

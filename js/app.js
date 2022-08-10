@@ -84,11 +84,16 @@ const sendButton = document.getElementById("send-button");
 const sendButton2 = document.getElementById("send-button2");
 
 sendButton.addEventListener("click", () => {
-  console.log("click");
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.getRegistration().then((sw) => sw.showNotification("Hello"), {
-      vibrate: [200, 100, 200, 100, 200, 100, 200],
-    });
+    navigator.serviceWorker.getRegistration().then((sw) =>
+      sw.showNotification("Hello", {
+        vibrate: [200, 100, 200, 100, 200, 100, 200],
+        actions: [
+          { action: "like", title: "Like" },
+          { action: "reply", title: "Reply" },
+        ],
+      })
+    );
   }
 });
 
