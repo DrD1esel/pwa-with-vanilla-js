@@ -18,7 +18,6 @@ const assets = [
 
 self.addEventListener("activate", (event) => {
   const cacheKeeplist = [cacheName];
-
   event.waitUntil(
     caches.keys().then((keyList) => {
       return Promise.all(
@@ -30,10 +29,11 @@ self.addEventListener("activate", (event) => {
       );
     })
   );
+  console.log("Activate");
 });
 
 self.addEventListener("install", (installEvent) => {
-  installEvent.waitUntil(caches.delete(cacheName));
+  // installEvent.waitUntil(caches.delete(cacheName));
   installEvent.waitUntil(
     caches.open(cacheName).then((cache) => {
       cache.addAll(assets);
