@@ -1,4 +1,4 @@
-const staticDevCoffee = "dev-coffee-site-v6";
+const staticDevCoffee = "dev-coffee-site-v7";
 // DO NOT CHANGE CACHE NAME
 const cacheName = "v7";
 const assets = [
