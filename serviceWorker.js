@@ -1,5 +1,5 @@
 const staticDevCoffee = "dev-coffee-site-v9";
-const cacheName = "v3";
+const cacheName = "v4";
 const assets = [
   "/",
   "/index.html",
