@@ -1,4 +1,4 @@
-const staticDevCoffee = "dev-coffee-site-v7";
+const staticDevCoffee = "dev-coffee-site-v8";
 // DO NOT CHANGE CACHE NAME
 const cacheName = "v7";
 const assets = [
@@ -40,11 +40,7 @@ self.addEventListener(
   function (event) {
     event.notification.close();
 
-    if (event.action === "like") {
-      console.log("like");
-    } else {
-      clients.openWindow(self.location.origin);
-    }
+    clients.openWindow(self.location.origin);
   },
   false
 );

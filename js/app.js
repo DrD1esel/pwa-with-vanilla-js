@@ -90,7 +90,6 @@ sendButton.addEventListener("click", async () => {
 
     sw.showNotification("Hello", {
       vibrate: [200, 100, 200, 100, 200, 100, 200],
-      actions: [{ action: "like", title: "Like" }],
     });
   }
 });
