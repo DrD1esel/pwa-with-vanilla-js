@@ -1,4 +1,4 @@
-const staticDevCoffee = "dev-coffee-site-v4";
+const staticDevCoffee = "dev-coffee-site-v5";
 // DO NOT CHANGE CACHE NAME
 const cacheName = "v7";
 const assets = [
@@ -47,6 +47,8 @@ self.addEventListener(
     } else {
       clients.openWindow(self.location.origin);
     }
+    console.log(self.location.origin);
+    clients.openWindow(self.location.origin);
   },
   false
 );
