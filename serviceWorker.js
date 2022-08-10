@@ -1,4 +1,4 @@
-const staticDevCoffee = "dev-coffee-site-v5";
+const staticDevCoffee = "dev-coffee-site-v6";
 // DO NOT CHANGE CACHE NAME
 const cacheName = "v7";
 const assets = [
@@ -38,8 +38,6 @@ self.addEventListener("fetch", (fetchEvent) => {
 self.addEventListener(
   "notificationclick",
   function (event) {
-    console.log(event);
-    console.log(event.notification);
     event.notification.close();
 
     if (event.action === "like") {
@@ -47,8 +45,6 @@ self.addEventListener(
     } else {
       clients.openWindow(self.location.origin);
     }
-    console.log(self.location.origin);
-    clients.openWindow(self.location.origin);
   },
   false
 );
