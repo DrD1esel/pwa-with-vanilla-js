@@ -1,4 +1,4 @@
-const staticDevCoffee = "dev-coffee-site-v3";
+const staticDevCoffee = "dev-coffee-site-v4";
 const cacheName = "v7";
 const assets = [
   "/",
