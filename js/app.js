@@ -100,9 +100,11 @@ sendButton.addEventListener("click", () => {
 sendButton2.addEventListener("click", () => {
   setTimeout(() => {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.getRegistration().then((sw) => sw.showNotification("Hello"), {
-        vibrate: [200, 100, 200, 100, 200, 100, 200],
-      });
+      navigator.serviceWorker.getRegistration().then((sw) =>
+        sw.showNotification("Hello", {
+          vibrate: [200, 100, 200, 100, 200, 100, 200],
+        })
+      );
     }
   }, 10000);
 });
